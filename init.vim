@@ -8,6 +8,7 @@ call vundle#begin()
 
 " Plugins
 " -----------------------------------------------------------------------------
+Plugin 'axelf4/vim-strip-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'MaxMEllon/vim-jsx-pretty'
@@ -38,4 +39,8 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " Key maps
 " -----------------------------------------------------------------------------
 map <C-e> :Explore<CR>
+nnoremap <C-Z> u
+nnoremap <C-Y> <C-R>
+inoremap <C-Z> <C-O>u
+inoremap <C-Y> <C-O><C-R>
 " -----------------------------------------------------------------------------
