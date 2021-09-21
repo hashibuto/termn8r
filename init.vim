@@ -29,6 +29,7 @@ Plug 'neoclide/coc.nvim'
 Plug 'neoclide/coc-tsserver'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'scrooloose/nerdtree'
 Plug 'tomasiser/vim-code-dark'
 Plug 'VundleVim/Vundle.vim'
 " -----------------------------------------------------------------------------
@@ -62,6 +63,12 @@ inoremap <C-P> <Esc>:Files<CR>
 nnoremap <C-F> :Ag<CR>
 inoremap <C-F> <Esc>:Ag<CR>
 
+" Nerdtree mappings
+autocmd VimEnter * NERDTree | wincmd p
+nnoremap <C-E> :NERDTreeFocus<CR>
+inoremap <C-E> <Esc>:NERDTreeFocus<CR>
+
+
 " Filetype specific stuff
 " -----------------------------------------------------------------------------
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0
@@ -76,7 +83,7 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " Key maps
 " -----------------------------------------------------------------------------
-map <C-e> :Explore<CR>
+
 nnoremap <C-Z> u
 nnoremap <C-Y> <C-R>
 inoremap <C-Z> <C-O>u
