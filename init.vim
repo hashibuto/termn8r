@@ -12,29 +12,29 @@ set nowritebackup
 set termguicolors
 let g:netrw_banner=0
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.local/share/nvim/site/bundle/Vundle.vim
-call vundle#begin()
+" initialize vimplug
+call plug#begin('~/.vim/bundle')
 
 " Plugins
 " -----------------------------------------------------------------------------
-Plugin 'axelf4/vim-strip-trailing-whitespace'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'itchyny/vim-gitbranch'
-Plugin 'kassio/neoterm'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'MaxMEllon/vim-jsx-pretty'
-Plugin 'neoclide/coc.nvim'
-Plugin 'neoclide/coc-tsserver'
-Plugin 'pangloss/vim-javascript'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'VundleVim/Vundle.vim'
+Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'kassio/neoterm'
+Plug 'leafgarland/typescript-vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc-tsserver'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'tomasiser/vim-code-dark'
+Plug 'VundleVim/Vundle.vim'
 " -----------------------------------------------------------------------------
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
 
 
@@ -54,6 +54,12 @@ let g:lightline = {
 let g:neoterm_default_mod = 'vertical'
 let g:neoterm_size = 60
 let g:neoterm_autoinsert = 1
+
+" FZF mappings
+nnoremap <C-T> :Files<CR>
+inoremap <C-T> <Esc>:Files<CR>
+nnoremap <C-F> :Ag<CR>
+inoremap <C-F> <Esc>:Ag<CR>
 
 " Filetype specific stuff
 " -----------------------------------------------------------------------------

@@ -9,6 +9,7 @@ sudo apt remove -y \
 sudo apt-get install -y \
   git \
   neovim \
+  silversearcher-ag \
   tmux
 
 sudo npm install -g yarn
@@ -19,13 +20,11 @@ rm -rf ~/.config/nvim
 mkdir -p -m 755 ~/.local/share/nvim/site
 mkdir -p -m 755 ~/.config/nvim
 
-pushd .
-cd ~/.local/share/nvim/site
-git clone https://github.com/VundleVim/Vundle.vim.git bundle/Vundle.vim
-popd
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 cp init.vim ~/.config/nvim
-nvim +PluginUpdate +qall
+nvim +PlugInstall +qall
 
 pushd .
 cd ~/.vim/bundle/coc.nvim

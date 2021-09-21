@@ -1,2 +1,2 @@
 # termn8r
-king of the console and productivity
+develop like a beast in neovim
