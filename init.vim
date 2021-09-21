@@ -39,15 +39,16 @@ filetype plugin indent on    " required
 
 
 colorscheme codedark
+
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ]
   \ },
   \ 'component_function': {
   \   'gitbranch': 'gitbranch#name'
   \ },
-  \ 'colorscheme': 'codedark',
+  \ 'colorscheme': 'wombat',
   \ }
 
 " Neoterm mappings
@@ -56,8 +57,8 @@ let g:neoterm_size = 60
 let g:neoterm_autoinsert = 1
 
 " FZF mappings
-nnoremap <C-T> :Files<CR>
-inoremap <C-T> <Esc>:Files<CR>
+nnoremap <C-P> :Files<CR>
+inoremap <C-P> <Esc>:Files<CR>
 nnoremap <C-F> :Ag<CR>
 inoremap <C-F> <Esc>:Ag<CR>
 
