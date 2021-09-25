@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set encoding=utf-8
 set belloff=all
 set splitright
 set splitbelow
@@ -13,11 +14,12 @@ set termguicolors
 let g:netrw_banner=0
 
 " initialize vimplug
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/bundle')
 
 " Plugins
 " -----------------------------------------------------------------------------
 Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'fannheyward/coc-pyright'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -31,6 +33,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'scrooloose/nerdtree'
 Plug 'tomasiser/vim-code-dark'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'VundleVim/Vundle.vim'
 " -----------------------------------------------------------------------------
 
@@ -68,6 +71,10 @@ autocmd VimEnter * NERDTree | wincmd p
 nnoremap <C-E> :NERDTreeFocus<CR>
 inoremap <C-E> <Esc>:NERDTreeFocus<CR>
 
+" coc.nvim mappings
+nmap <C-G> <Plug>(coc-definition)
+imap <C-G> <Esc><Plug>(coc-definition)
+
 
 " Filetype specific stuff
 " -----------------------------------------------------------------------------
@@ -76,6 +83,7 @@ autocmd Filetype javascriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=0
 autocmd Filetype typescript setlocal tabstop=2 shiftwidth=2 softtabstop=0
 autocmd Filetype typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=0
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=0
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=0 textwidth=79
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
@@ -84,10 +92,15 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " Key maps
 " -----------------------------------------------------------------------------
 
+" Undo/redo
 nnoremap <C-Z> u
 nnoremap <C-Y> <C-R>
 inoremap <C-Z> <C-O>u
 inoremap <C-Y> <C-O><C-R>
+
+" del line
+nnoremap <C-D> dd
+inoremap <C-D> <Esc>dd
 
 " terminal
 nnoremap <C-T> :Ttoggle<CR>

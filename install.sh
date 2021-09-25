@@ -14,7 +14,6 @@ sudo apt-get install -y \
 
 sudo npm install -g yarn
 
-rm -rf ~/.vim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.config/nvim
 mkdir -p -m 755 ~/.local/share/nvim/site
@@ -24,10 +23,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 cp init.vim ~/.config/nvim
+cp coc-settings.json ~/.config/nvim/coc-settings.json
 nvim +PlugInstall +qall
+# Install Coc-pyright
+nvim +CocInstall coc-pyright +qall
 
 pushd .
-cd ~/.vim/bundle/coc.nvim
+cd ~/.config/nvim/bundle/coc.nvim
 yarn install
 yarn build
 popd
